@@ -3,6 +3,7 @@ const routes = require('./routes/routes');
 const port = 8000;
 const app = express();
 const router = express.Router();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
