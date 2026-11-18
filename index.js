@@ -1,17 +1,12 @@
 const express = require('express');
+const routes = require('./routes/routes');
 const port = 8000;
 const app = express();
 const router = express.Router();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-router.get('/', (request, response) => response.send('hello from skillsoft'));
-router.post('/addemployee', (request, response) => {
-	const empName = request.body.empName;
-	const empPass = request.body.empPass;
-	response.end(`POST success, you sent ${empName} and ${empPass}, thanks!`);
-});
-
+routes(router);
 app.use('/', router);
 app.listen(port, function () {
 	console.log('Listening on...' + port);
